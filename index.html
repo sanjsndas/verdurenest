@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerdureNest - Organic Garden Design & Sustainable Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+        
+        :root {
+            --primary: #000000;
+            --secondary: #fafafa;
+            --accent: #f4a261;
+            --light: #f8f9fa;
+            --dark: #1a2e22;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(42, 93, 52, 0.85), rgba(42, 93, 52, 0.85)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 8px;
+            overflow: hidden;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-bottom-color: var(--accent);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(254, 253, 253, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: rgb(249, 242, 242);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer a:hover {
+            color: var(--accent);
+        }
+        
+        .image-gallery img {
+            transition: all 0.3s ease;
+            filter: grayscale(20%);
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.03);
+            filter: grayscale(0%);
+        }
+        
+        .consultant-section {
+            background-color: rgba(71, 140, 92, 0.08);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .tip-card {
+            border-top: 3px solid var(--accent);
+            background-color: rgba(244, 162, 97, 0.05);
+        }
+        
+        .disclaimer {
+            background-color: rgba(244, 162, 97, 0.08);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .feedback-form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-input {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 93, 52, 0.2);
+        }
+        
+        .rating-input {
+            display: none;
+        }
+        
+        .rating-label {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #cbd5e0;
+            transition: all 0.2s ease;
+        }
+        
+        .rating-input:checked ~ .rating-label,
+        .rating-label:hover,
+        .rating-label:hover ~ .rating-label {
+            color: var(--accent);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        *:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold">
+                        <span class="text-primary">Verdure</span><span class="text-secondary">Nest</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html"class="nav-link active">Home</a>
+                    <a href="privacy.html" class="nav-link text-gray-800">Privacy</a>
+                    <a href="terms.html" class="nav-link text-gray-800">Terms & Conditions</a>
+                    <a href="cookies.html" class="nav-link text-gray-800">Cookies</a>
+                    <a href="contact.html" class="nav-link text-gray-800">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero animate-section">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Let your garden bloom from the earth up</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Transform your outdoor space with our expert organic garden design and sustainable growth solutions tailored to your unique environment and lifestyle needs</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="btn-primary inline-block px-8 py-3 rounded-md font-semibold text-center">Explore Our Services</a>
+                <a href="#contact" class="bg-white text-primary inline-block px-8 py-3 rounded-md font-semibold border border-primary hover:bg-primary hover:text-white transition-all duration-300 text-center">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-white animate-section" id="about">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-8">About VerdureNest</h2>
+                    <p class="mb-6 text-lg">Founded in 2010, VerdureNest has established itself as a leader in organic garden design and sustainable landscaping solutions. Our journey began with a simple mission: to create beautiful outdoor spaces that work in harmony with nature rather than against it.</p>
+                    <p class="mb-8">Over the years, we've cultivated a team of passionate horticulturists, landscape architects, and environmental specialists who share a common vision. We believe that every garden - whether a small urban balcony or an expansive country estate - can be both aesthetically stunning and ecologically beneficial.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">Certified Experts</h3>
+                                <p class="text-sm">Our team holds 47 professional certifications in organic horticulture, permaculture design, and sustainable landscaping practices from accredited institutions worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">Sustainable Practices</h3>
+                                <p class="text-sm">We've implemented over 2,300 sustainable garden projects, saving an estimated 15 million gallons of water through our innovative irrigation techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="p1.png" alt="VerdureNest team working in garden" class="rounded-lg shadow-xl w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-accent p-4 rounded-lg shadow-lg text-white">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-gray-50 animate-section" id="services">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Our Comprehensive Services</h2>
+                <p class="max-w-2xl mx-auto text-lg">From initial design to ongoing maintenance, we offer complete organic garden solutions</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                        <img src="s1.jpg" alt="Organic Garden Design" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Organic Garden Design</h3>
+                    <p class="mb-6">Our bespoke garden designs integrate aesthetic beauty with ecological function. We create vibrant outdoor spaces using organic principles, native plant selections, and sustainable materials. Each design is tailored to your specific site conditions, personal preferences, and environmental goals.</p>
+                    <a href="#" class="text-primary font-semibold flex items-center group">
+                        Explore Design Options
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin::round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                        <img src="s2.jpg" alt="Sustainable Irrigation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap::round" stroke-linejoin::round" stroke-width::2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Sustainable Irrigation Systems</h3>
+                    <p class="mb-6">Our water-wise irrigation solutions reduce consumption while keeping your landscape lush and healthy. We design and install advanced systems that deliver the right amount of water precisely where it's needed, eliminating waste and promoting deep root growth.</p>
+                    <a href="#" class="text-primary font-semibold flex items-center group">
+                        Discover Irrigation Solutions
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin::round" stroke-width::2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                        <img src="s3.jpg" alt="Soil Health Analysis" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class=" w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Soil Health Analysis</h3>
+                    <p class="mb-6">We provide comprehensive soil testing services to assess nutrient levels, pH balance, and organic matter content. Our experts analyze the results and recommend tailored amendments to optimize soil health, ensuring your plants thrive.</p>
+                    <a href="#" class="text-primary font-semibold flex items-center group">
+                        Learn About Soil Health
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                        <img src="s4.jpg" alt="Garden Maintenance" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Garden Maintenance Services</h3>
+                    <p class="mb-6">Our comprehensive garden maintenance services ensure your outdoor space remains healthy and beautiful throughout the year. We offer tailored maintenance plans that include regular pruning, weeding, fertilization, and pest management.</p>
+                    <a href="#" class="text-primary font-semibold flex items-center group">
+                        Schedule Maintenance
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                        <img src="s5.jpg" alt="Landscape Design" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Landscape Design & Installation</h3>
+                    <p class="mb-6">Our landscape design services encompass everything from conceptual design to full installation. We work closely with you to create outdoor spaces that reflect your style while enhancing the natural beauty of your property.</p>
+                    <a href="#" class="text-primary font-semibold flex items-center group">
+                        Start Your Landscape Project
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultant Section -->
+    <section class="py-20 bg-white animate-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Expert Consultation</h2>
+                <p class="max-w-3xl mx-auto text-lg">Our certified garden consultants provide personalized advice to help your garden thrive, ensuring you have the knowledge and support needed to maintain a flourishing outdoor space.</p>
+            </div>
+            
+            <div class="consultant-section p-8 md:p-12 rounded-lg mb-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-8 md:mb-0 md:pr-8">
+                        <img src="s6.jpg" alt="Garden Consultant" class="rounded-full w-48 h-48 object-cover mx-auto shadow-lg">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold mb-4">Personalized Garden Plans</h3>
+                        <p class="mb-6">Our consultants work closely with you to create a garden plan that fits your lifestyle, preferences, and environmental conditions. We take into account your vision, the local climate, and soil conditions to ensure your garden flourishes.</p>
+                        <p class="mb-6">With over a decade of experience, our team is equipped to handle any gardening challenge, from pest management to plant selection. We are committed to helping you achieve a sustainable and beautiful garden that you can enjoy for years to come.</p>
+                        <a href="#contact" class="btn-primary inline-block px-6 py-3 rounded-md font-semibold">Schedule a Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="py-20 bg-gray-50 animate-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Client Feedback</h2>
+                <p class="max-w-2xl mx-auto text-lg">Hear what our satisfied clients have to say about their experiences with VerdureNest and how we've helped them achieve their gardening goals.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="mb-4">"VerdureNest transformed my backyard into a beautiful oasis. Their team was professional and attentive to my needs, and I couldn't be happier with the results!"</p>
+                    <p class="font-semibold">- Sarah J.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="mb-4">"I appreciated their sustainable approach to gardening. My garden is thriving, and I feel good about the choices we made together. Highly recommend!"</p>
+                    <p class="font-semibold">- Mark T.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="mb-4">"The consultation was incredibly helpful. I learned so much about how to care for my plants and create a more sustainable garden!"</p>
+                    <p class="font-semibold">- Emily R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Form Section -->
+    <section class="py-20 bg-white animate-section" id="feedback">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">We Value Your Feedback</h2>
+                <p class="max-w-2xl mx-auto text-lg">Please take a moment to share your thoughts about our services. Your feedback helps us improve and serve you better.</p>
+            </div>
+            <form class="feedback-form p-8 rounded-lg">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-semibold mb-2">Your Name</label>
+                    <input type="text" id="name" class="form-input w-full p-3 rounded-md" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-semibold mb-2">Your Email</label>
+                    <input type="email" id="email" class="form-input w-full p-3 rounded-md" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-6">
+                    <label for="feedback" class="block text-sm font-semibold mb-2">Your Feedback</label>
+                    <textarea id="feedback" class="form-input w-full p-3 rounded-md" rows="4" placeholder="Share your thoughts" required></textarea>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold mb-2">Rate Your Experience</label>
+                    <div class="flex">
+                        <input type="radio" id="star1" name="rating" value="5" class="rating-input" required>
+                        <label for="star1" class="rating-label">★</label>
+                        <input type="radio" id="star2" name="rating" value="4" class="rating-input">
+                        <label for="star2" class="rating-label">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" class="rating-input">
+                        <label for="star3" class="rating-label">★</label>
+                        <input type="radio" id="star4" name="rating" value="2" class="rating-input">
+                        <label for="star4" class="rating-label">★</label>
+                        <input type="radio" id="star5" name="rating" value="1" class="rating-input">
+                        <label for="star5" class="rating-label">★</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary w-full">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-20 bg-white animate-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Gardening Tips</h2>
+                <p class="max-w-2xl mx-auto text-lg">Simple tips to enhance your gardening experience and ensure your plants thrive in a sustainable manner. These practical suggestions can help you create a flourishing garden that is both beautiful and environmentally friendly.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Water Wisely</h3>
+                    <p>Water your plants early in the morning or late in the evening to minimize evaporation and ensure that your plants receive the moisture they need without wasting water.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Choose Native Plants</h3>
+                    <p>Native plants are adapted to your local environment and require less maintenance, making them a sustainable choice for your garden.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Mulch for Moisture</h3>
+                    <p>Applying mulch helps retain soil moisture, suppress weeds, and improve soil health, creating a better environment for your plants to thrive.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Rotate Your Crops</h3>
+                    <p>Practicing crop rotation can help prevent soil depletion and reduce pest and disease problems, leading to healthier plants and better yields.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Compost for Nutrients</h3>
+                    <p>Creating your own compost from kitchen scraps and yard waste enriches your soil with nutrients, promoting healthy plant growth and reducing waste.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2">Plan for Pollinators</h3>
+                    <p>Incorporate a variety of flowering plants to attract pollinators like bees and butterflies, which are essential for the health of your garden and ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="py-20 bg-gray-50 animate-section">
+        <div class="container mx-auto px-6">
+            <div class="disclaimer p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Disclaimer</h3>
+                <p>The information provided on this website is for general informational purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction Section -->
+    <section class="py-20 bg-white animate-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Customer Satisfaction</h2>
+                <p class="max-w-2xl mx-auto text-lg">At VerdureNest, we prioritize our clients' satisfaction and strive to exceed their expectations with every project. Our commitment to quality and sustainability ensures that your garden not only looks beautiful but also contributes positively to the environment.</p>
+            </div>
+            <p class="text-lg">We value your feedback and continuously work to improve our services. Your satisfaction is our top priority, and we are dedicated to helping you create the garden of your dreams.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">Visit us at: 334 E 25th St, New York, NY 10010, USA</p>
+            <p>&copy; 2023 VerdureNest. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

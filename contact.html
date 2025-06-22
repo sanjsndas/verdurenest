@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | VerdureNest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+        
+        :root {
+            --primary: #2a5d34;
+            --secondary: #478c5c;
+            --accent: #f4a261;
+            --light: #f8f9fa;
+            --dark: #1a2e22;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .contact-point {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-input {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 93, 52, 0.2);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <span class="text-primary">Verdure</span><span class="text-secondary">Nest</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link text-gray-800">Home</a>
+                    <a href="privacy.html" class="nav-link text-gray-800">Privacy</a>
+                    <a href="terms.html" class="nav-link text-gray-800">Terms & Conditions</a>
+                    <a href="cookies.html" class="nav-link text-gray-800">Cookies</a>
+                    <a href="contact.html" class="nav-link active">Contact Us</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl font-bold mb-8 text-center">Contact VerdureNest</h1>
+            <p class="text-lg mb-12 text-center max-w-3xl mx-auto">We'd love to hear from you! Reach out through any of these methods or fill out the form below.</p>
+            
+            <div class="contact-form max-w-4xl mx-auto p-8 mb-20">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold mb-2">Your Name*</label>
+                            <input type="text" id="name" class="form-input w-full p-3 rounded-md" placeholder="Enter your full name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2">Email Address*</label>
+                            <input type="email" id="email" class="form-input w-full p-3 rounded-md" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input w-full p-3 rounded-md" placeholder="Enter your phone number">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-semibold mb-2">Subject*</label>
+                            <select id="subject" class="form-input w-full p-3 rounded-md" required>
+                                <option value="">Select a subject</option>
+                                <option value="consultation">Garden Design Consultation</option>
+                                <option value="estimate">Request for Estimate</option>
+                                <option value="maintenance">Maintenance Services</option>
+                                <option value="feedback">Feedback/Suggestions</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-semibold mb-2">Your Message*</label>
+                        <textarea id="message" class="form-input w-full p-3 rounded-md" rows="5" placeholder="Please enter your message in detail" required></textarea>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <input type="checkbox" id="consent" class="mr-2" required>
+                        <label for="consent" class="text-sm">I consent to VerdureNest collecting my data for contact purposes. (View our <a href="privacy.html" class="text-primary">Privacy Policy</a>)</label>
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-3 rounded-md font-semibold">Send Message</button>
+                </form>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-8 text-center">Contact Information</h2>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">1. Head Office Location</h2>
+                <p>Our main office is conveniently located in the heart of New York City at 334 E 25th St, New York, NY 10010. The office is open Monday through Friday from 9:00 AM to 5:00 PM. We recommend scheduling an appointment before visiting to ensure availability of our team members. Free parking is available in the adjacent lot, and the location is accessible via public transportation. Look for our distinctive green signage with the VerdureNest logo.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">2. Phone Contact</h2>
+                <p>For immediate assistance, please call our main line at (833) 667-9988 during business hours. Our phone system will guide you to the appropriate department based on your needs. For after-hours emergencies related to active service projects, please call (123) 456-7891 for our 24/7 emergency line. For general inquiries, our customer service team is available Monday through Friday from 8:00 AM to 6:00 PM. International clients may reach us at +1 (123) 456-7892.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">3. Email Contact</h2>
+                <p>For non-urgent matters, you may email us at info@verdurenest.com. Our customer service team monitors this inbox during business hours and aims to respond within 24-48 hours. For specific inquiries, you may contact: design@verdurenest.com for design consultation requests, maintenance@verdurenest.com for service questions, and billing@verdurenest.com for payment-related issues. Please include your full name and any relevant project reference numbers in your email.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">4. Service Area Coverage</h2>
+                <p>We proudly serve the entire New York metropolitan area, including all five boroughs, Long Island, Westchester County, and parts of New Jersey and Connecticut. Service availability may vary based on project type and season. For areas beyond our standard service region, we may charge additional travel fees or offer virtual consultation services. Contact our office to verify coverage for your specific location before scheduling services.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">5. Business Hours</h2>
+                <p>Our standard business hours are Monday through Friday from 9:00 AM to 5:00 PM, with extended customer service hours until 6:00 PM. Field crews may be working on projects from 7:00 AM to 7:00 PM during peak seasons. We are closed on major holidays, but emergency service calls are monitored year-round. Administrative offices observe reduced hours during winter months (December-February) while our maintenance teams continue operations weather permitting.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">6. Social Media</h2>
+                <p>Connect with us on social media for gardening tips, project showcases, and company updates. Find us on Instagram @VerdureNest, Facebook at VerdureNestOfficial, Twitter @VerdureNest, and Pinterest at VerdureNestDesigns. While we monitor these platforms for messages, they are not our primary communication channel—please use official contact methods for service requests or urgent matters. Social media responses may take 2-3 business days.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">7. Career Opportunities</h2>
+                <p>We're always looking for talented individuals to join our growing team. Current openings are listed on our careers page at careers.verdurenest.com. For inquiries about employment or internships, please email hr@verdurenest.com with your resume and position of interest. No phone calls please—qualified candidates will be contacted for interviews. We offer competitive compensation, benefits, and opportunities for professional development in sustainable landscaping.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">8. Vendor & Supplier Inquiries</h2>
+                <p>Businesses interested in becoming vendors or suppliers should email vendor@verdurenest.com with company information, product catalogs, and sustainability certifications. We prioritize partnerships with local, sustainable, and eco-friendly suppliers. Due to the volume of inquiries, please allow 2-3 weeks for response. Current procurement needs include organic plants, sustainable hardscape materials, and environmentally responsible gardening products.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">9. Media & Press</h2>
+                <p>Members of the press should contact our communications team at press@verdurenest.com for interview requests, media kits, or expert commentary on organic gardening and sustainable landscaping topics. We can provide high-resolution images of our projects, company background information, and access to our design experts. Please include your deadline, publication details, and specific information needs in your inquiry.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">10. Event Participation</h2>
+                <p>To invite VerdureNest to participate in community events, gardening shows, or educational programs, please email events@verdurenest.com at least 60 days before the event date. Include event details, expected audience, and any participation requirements. We prioritize events that align with our mission of promoting sustainable gardening practices. Due to demand, we cannot accommodate all requests but appreciate every opportunity to connect with our community.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">11. Feedback & Complaints</h2>
+                <p>We value your feedback to help us improve our services. For compliments, suggestions, or concerns, please email feedback@verdurenest.com or call our customer service line. For formal complaints, please provide detailed information including dates, names, and nature of the issue. We will acknowledge receipt within 48 hours and work to resolve your concern within 5 business days. Your satisfaction is our priority, and we take all feedback seriously.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">12. Billing & Payment Questions</h2>
+                <p>For questions about invoices, payments, or billing discrepancies, please contact billing@verdurenest.com or call our dedicated billing line at (123) 456-7893. Have your invoice number ready when calling. Our billing department is available Monday-Friday 8:00 AM to 4:00 PM. We accept all major credit cards, checks, and bank transfers. Payment plans may be available for large projects—inquire for details. Online payments can be made through our client portal.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">13. Scheduling & Service Changes</h2>
+                <p>To schedule, reschedule, or modify services, please call our scheduling department at (123) 456-7894 or email schedule@verdurenest.com. For same-day cancellations, call our dispatch line at (123) 456-7895. Changes require at least 24 hours notice to avoid cancellation fees. Our online scheduling system allows existing clients to view and modify appointments after logging into their account. Weather-related adjustments will be communicated proactively by our team.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">14. Emergency Services</h2>
+                <p>For urgent issues requiring immediate attention (such as storm damage, irrigation failures, or hazardous tree conditions), call our 24/7 emergency line at (123) 456-7891. Emergency service rates apply outside normal business hours. Our response team will assess the situation and dispatch appropriate personnel. For safety emergencies, please call 911 first, then notify us. We maintain partnerships with local arborists and landscapers to provide comprehensive emergency response.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">15. Business Partnerships</h2>
+                <p>We welcome opportunities to collaborate with complementary businesses. Real estate developers, property managers, architects, and other professionals interested in partnership opportunities should email partnerships@verdurenest.com with details about potential collaboration. We offer co-marketing opportunities, referral programs, and preferred partner status for businesses with aligned values. Let's explore how we can work together to promote sustainable landscapes.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">16. Educational Programs</h2>
+                <p>VerdureNest offers workshops, classes, and educational resources on organic gardening and sustainable practices. For program schedules or to request educational materials, email education@verdurenest.com. Schools, community groups, and organizations may inquire about our speakers bureau or customized workshops. We can accommodate group sizes from 10-200 people and offer both virtual and in-person educational options. Check our events calendar for upcoming programs.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">17. Franchise Opportunities</h2>
+                <p>Interested in bringing VerdureNest's organic landscaping services to your area? We're exploring franchising opportunities in select markets. For preliminary information about franchise requirements and territories, email franchise@verdurenest.com. Qualified candidates will receive our franchise information packet and be invited to discovery meetings. We seek experienced business operators who share our commitment to environmental stewardship and exceptional customer service.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">18. Investor Relations</h2>
+                <p>For inquiries related to investment opportunities or financial partnerships, please contact our investor relations team at investors@verdurenest.com. We are committed to transparency and will provide potential investors with detailed information about our business model, growth strategy, and financial performance. We welcome discussions with individuals or organizations interested in supporting our mission of promoting sustainable gardening practices. Please include your background and interest in your email for a more tailored response.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">19. Community Involvement</h2>
+                <p>At VerdureNest, we believe in giving back to the community. We participate in local events, sponsor community gardens, and support environmental initiatives. If your organization is planning a community project that aligns with our values, please reach out to us at community@verdurenest.com. We are eager to explore ways to collaborate and make a positive impact in our neighborhoods. We prioritize partnerships that promote sustainability and education.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">20. Sustainability Practices</h2>
+                <p>We are dedicated to sustainable practices in all aspects of our business. This includes using organic materials, minimizing waste, and promoting biodiversity in our projects. For inquiries about our sustainability initiatives or to learn how we can help you create an eco-friendly garden, please contact sustainability@verdurenest.com. We are happy to share our knowledge and resources to help you make environmentally conscious choices in your gardening endeavors.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">21. Testimonials and Reviews</h2>
+                <p>We value your feedback and encourage clients to share their experiences with our services. If you would like to leave a testimonial or review, please visit our website or email testimonials@verdurenest.com. Your insights help us improve and assist potential clients in making informed decisions. We may feature your testimonial on our website or social media, with your permission. Thank you for helping us grow!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">22. Gardening Resources</h2>
+                <p>We provide a wealth of resources for gardeners of all levels. Our website features articles, guides, and videos on various gardening topics, from plant care to landscape design. For specific questions or to request additional resources, please contact resources@verdurenest.com. We are committed to empowering our clients with knowledge and tools to succeed in their gardening journeys. Explore our blog for the latest tips and trends in sustainable gardening.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">23. Seasonal Promotions</h2>
+                <p>Stay updated on our seasonal promotions and special offers by subscribing to our newsletter or following us on social media. For inquiries about current promotions or to request a custom quote, please email promotions@verdurenest.com. We frequently offer discounts on services during peak seasons and for referrals. Don’t miss out on opportunities to save while enhancing your garden!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">24. Gardening Workshops</h2>
+                <p>We host a variety of workshops throughout the year, covering topics such as organic gardening, landscape design, and pest management. For a schedule of upcoming workshops or to register, please visit our events page or email workshops@verdurenest.com. Our workshops are designed for all skill levels and provide hands-on learning experiences. Join us to enhance your gardening skills and connect with fellow gardening enthusiasts!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">25. Plant Care Guides</h2>
+                <p>Proper plant care is essential for a thriving garden. We offer detailed plant care guides for various species, including watering, fertilization, and pest control tips. For specific plant care inquiries or to request a guide, please contact careguides@verdurenest.com. Our team of experts is here to help you ensure your plants flourish and remain healthy throughout the seasons.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">26. Landscape Design Services</h2>
+                <p>Our landscape design services are tailored to meet the unique needs of each client. For inquiries about our design process, pricing, or to schedule a consultation, please email design@verdurenest.com. We work closely with clients to create beautiful, functional outdoor spaces that reflect their vision and enhance their property. Let us help you transform your garden into a stunning oasis!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">27. Maintenance Services</h2>
+                <p>We offer comprehensive maintenance services to keep your garden looking its best year-round. For more information about our maintenance packages or to schedule a service, please contact maintenance@verdurenest.com. Our experienced team is dedicated to providing high-quality care for your plants and landscape, ensuring they thrive and remain healthy. Regular maintenance is key to a successful garden!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">28. Irrigation Solutions</h2>
+                <p>Efficient irrigation is crucial for maintaining a healthy garden. We provide irrigation design and installation services tailored to your landscape's needs. For inquiries about our irrigation solutions or to schedule a consultation, please email irrigation@verdurenest.com. Our team will assess your property and recommend the best irrigation system to conserve water while ensuring your plants receive adequate moisture.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">29. Pest Management</h2>
+                <p>Effective pest management is essential for protecting your garden. We offer integrated pest management solutions that prioritize eco-friendly methods. For pest-related inquiries or to schedule a consultation, please contact pestcontrol@verdurenest.com. Our experts will assess your garden and recommend strategies to manage pests while minimizing harm to beneficial insects and the environment.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">30. Seasonal Planting Guides</h2>
+                <p>Knowing when to plant is key to a successful garden. We provide seasonal planting guides to help you choose the right plants for each season. For personalized planting advice or to request a guide, please contact planting@verdurenest.com. Our team is here to assist you in selecting plants that will thrive in your garden's specific conditions and climate.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">31. Community Gardening Initiatives</h2>
+                <p>We support community gardening initiatives and encourage local residents to get involved. If you are interested in starting a community garden or need assistance with an existing project, please email communitygardens@verdurenest.com. We can provide resources, guidance, and potential partnerships to help your community thrive through gardening.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">32. Eco-Friendly Products</h2>
+                <p>We offer a selection of eco-friendly gardening products, including organic fertilizers, pest control solutions, and sustainable gardening tools. For inquiries about our product offerings or to place an order, please contact products@verdurenest.com. We are committed to providing high-quality, environmentally responsible products that support sustainable gardening practices.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">33. Gardening Events Calendar</h2>
+                <p>Stay informed about upcoming gardening events, workshops, and community activities by checking our events calendar on our website. For inquiries about specific events or to request participation, please email events@verdurenest.com. We regularly update our calendar to include a variety of opportunities for learning and engagement in the gardening community.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">34. Gardening Blogs and Articles</h2>
+                <p>Our website features a blog with articles on various gardening topics, tips, and trends. If you have suggestions for blog topics or would like to contribute, please contact blog@verdurenest.com. We welcome guest posts from gardening enthusiasts and experts who wish to share their knowledge and experiences with our community.</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">35. Gardening Clubs and Groups</h2>
+                <p>If you are part of a gardening club or group and would like to collaborate with VerdureNest for events or workshops, please reach out to us at clubs@verdurenest.com. We enjoy partnering with local organizations to promote gardening and sustainability. Let’s work together to inspire more people to connect with nature through gardening!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">36. Gardening Competitions</h2>
+                <p>We host annual gardening competitions to encourage creativity and innovation in gardening. For details about upcoming competitions or to participate, please email competitions@verdurenest.com. We welcome entries from gardeners of all skill levels and offer prizes for outstanding designs and sustainable practices. Join us in celebrating the art of gardening!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">37. Gardening Resources for Schools</h2>
+                <p>We provide educational resources and support for schools interested in starting gardening programs. If you are an educator or administrator seeking assistance, please contact schools@verdurenest.com. We can offer guidance on curriculum development, garden design, and maintenance. Let’s work together to inspire the next generation of gardeners!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">38. Gardening for Health and Wellness</h2>
+                <p>Gardening has numerous health benefits, including stress relief and physical activity. For inquiries about our health and wellness programs related to gardening, please contact wellness@verdurenest.com. We offer workshops and resources that promote the therapeutic aspects of gardening. Join us in exploring how gardening can enhance your well-being!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">39. Gardening and Sustainability Research</h2>
+                <p>We are committed to supporting research in sustainable gardening practices. If you are a researcher or student seeking collaboration or resources, please contact research@verdurenest.com. We welcome partnerships that advance knowledge and promote sustainable practices in gardening and landscaping. Let’s work together to make a positive impact on the environment!</p>
+            </div>
+            
+            <div class="contact-point">
+                <h2 class="text-2xl font-bold mb-4">40. Conclusion</h2>
+                <p>Thank you for your interest in VerdureNest! We are here to assist you with all your gardening needs. Whether you have questions, feedback, or inquiries about our services, please don’t hesitate to reach out. We look forward to connecting with you and helping you achieve your gardening goals. Together, let’s cultivate a greener future!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">Visit us at: 334 E 25th St, New York, NY 10010, USA</p>
+            <p>Phone: (833) 667-9988</p>
+            <p>&copy; 2023 VerdureNest. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
